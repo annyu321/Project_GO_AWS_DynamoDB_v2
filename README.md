@@ -3,7 +3,7 @@
 ## Introduction
 This GO AWS DynamoDB Application performs a variety of operations using AWS DynamoDB SDK v2 and Go programming language.
 
-##Functionalities:
+## Functionalities:
 1. Connect to AWS DynamoDB or use DynamoDB local to create an AWS DynamoDB service object.
 
 2. Check if the table name is unique for the AWS account and region.
