@@ -37,6 +37,10 @@ func init() {
 func main() {
 	message := make(chan string)
 	var tableExist bool
+	
+	//Close log file
+	defer logFile.Close()
+	
 	//Create AWS DynamoDB service object
 	svc, err := New()
 	if err != nil {
@@ -61,7 +65,7 @@ func main() {
 	}
 
 	if !tableExist {
-		Create(svc, tableName)
+	   Create(svc, tableName)
 	}
 
 	//Wait for table to be activated
@@ -79,6 +83,7 @@ func main() {
 		}
 	}()
 
+	//select blocks until one of its cases can run
 	select {
 	case msg := <-message:
 		if msg == "done" {
@@ -96,7 +101,4 @@ func main() {
 			log.Printf("Error in loading data")
 		}
 	}
-
-	//Close log file
-	defer logFile.Close()
 }
