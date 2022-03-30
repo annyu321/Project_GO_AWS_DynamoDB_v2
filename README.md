@@ -12,6 +12,7 @@ This GO AWS DynamoDB Application performs a variety of operations using AWS Dyna
    Wait for the newly created table to be activated.
 
 4. Use goroutine to Load the AWS moviedata.json file to the table.
+   Use channels to fetch the status of data loading.
 
 5. Scan and filter to get items.
    Use FilterExpression and ExpressionAttributeNames properties to filter out. 
