@@ -77,6 +77,8 @@ func LoadData(db *dynamodb.Client, tbn string) error {
 	}
 
 	fmt.Println("Loading data...")
+	fmt.Println("This may take a few minutes to complete")
+	
 	for _, item := range items {
 		log.Println(item.Year)
 		log.Println(item.Title)
